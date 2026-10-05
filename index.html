@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. José Luis Saldivar González | Ginecología y Obstetricia CDMX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            slate: '#3e425e',
+                            dark: '#2d3045',
+                            pink: '#ea4887',
+                            pinkHover: '#d83574',
+                            lightBg: '#f8f9fc',
+                            purpleAccent: '#6b5284'
+                        },
+                        navy: {
+                            800: '#2d3045',
+                            900: '#1e2030',
+                        },
+                        teal: {
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                        },
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            400: '#fb7185',
+                            500: '#ea4887',
+                            600: '#d83574',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-header {
+            background: rgba(45, 48, 69, 0.96);
+            backdrop-filter: blur(10px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #2d3045 0%, #3e425e 50%, #4a3e5e 100%);
+        }
+        .fluid-bg-mesh {
+            background: radial-gradient(circle at 10% 20%, rgba(234, 72, 135, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(107, 82, 132, 0.2) 0%, transparent 45%),
+                        linear-gradient(135deg, #2d3045 0%, #3e425e 100%);
+        }
+        .badge-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-rose-500 selection:text-white">
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header text-white transition-all duration-300 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Brand -->
+                <a href="#inicio" class="flex items-center space-x-3 group">
+                    <!-- Custom SVG Logo Matching Image.png -->
+                    <div class="w-12 h-12 rounded-full bg-white p-1.5 shadow-md group-hover:scale-105 transition-transform flex items-center justify-center">
+                        <svg class="w-full h-full" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Pink Ribbon Logo exact vector trace from image.png -->
+                            <circle cx="308" cy="108" r="16" fill="#ea4887" />
+                            <path d="M 225,225 C 265,220 292,185 298,138 C 304,115 330,145 312,195 C 290,255 292,335 288,370 C 282,415 138,425 138,320 C 138,235 230,230 248,278 C 258,305 236,335 210,320 C 192,308 192,282 208,275" stroke="#ea4887" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                            <!-- Inner Navy Figure exact vector trace from image.png -->
+                            <circle cx="260" cy="258" r="14" fill="#3e425e" />
+                            <path d="M 248,290 C 242,312 230,340 218,340 C 208,340 202,325 212,305 C 222,285 238,290 234,312 C 228,338 206,362 202,335" stroke="#3e425e" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="block text-lg font-bold tracking-tight text-white group-hover:text-rose-300 transition-colors">Dr. José Luis Saldivar</span>
+                        <span class="block text-xs font-semibold text-rose-400 tracking-wider">Ginecología y Obstetricia</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Navigation -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#inicio" class="hover:text-rose-300 transition-colors">Inicio</a>
+                    <a href="#tarjeta-portada" class="hover:text-rose-300 transition-colors">Tarjeta Digital</a>
+                    <a href="#sobre-mi" class="hover:text-rose-300 transition-colors">Trayectoria</a>
+                    <a href="#especialidades" class="hover:text-rose-300 transition-colors">Especialidades</a>
+                    <a href="#ubicaciones" class="hover:text-rose-300 transition-colors">Ubicaciones</a>
+                    <a href="#testimonios" class="hover:text-rose-300 transition-colors">Opiniones</a>
+                    <button onclick="openBookingModal()" class="bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white px-5 py-2.5 rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <i class="fa-regular fa-calendar-check"></i> Agendar Cita
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-md text-slate-200 hover:text-white hover:bg-slate-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-t border-slate-700 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-rose-300">Inicio</a>
+            <a href="#tarjeta-portada" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-rose-300">Tarjeta de Presentación</a>
+            <a href="#sobre-mi" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-rose-300">Trayectoria</a>
+            <a href="#especialidades" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-rose-300">Especialidades</a>
+            <a href="#ubicaciones" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-rose-300">Ubicaciones</a>
+            <a href="#testimonios" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-slate-200 hover:text-rose-300">Opiniones</a>
+            <button onclick="toggleMobileMenu(); openBookingModal();" class="w-full mt-2 bg-rose-500 text-white text-center py-3 rounded-lg font-semibold shadow-md">
+                <i class="fa-regular fa-calendar-check mr-2"></i> Agendar Cita
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION CON PORTADA TARJETA DE PRESENTACIÓN -->
+    <section id="inicio" class="relative pt-28 pb-16 lg:pt-32 lg:pb-24 fluid-bg-mesh text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- PORTADA: RECREACIÓN DE LA TARJETA DE PRESENTACIÓN OFICIAL -->
+            <div id="tarjeta-portada" class="mb-12 max-w-4xl mx-auto bg-brand-slate/90 backdrop-blur-md rounded-3xl p-6 sm:p-10 border-2 border-rose-400/30 shadow-2xl relative overflow-hidden text-center">
+                <div class="absolute -top-24 -left-24 w-48 h-48 bg-rose-500/20 rounded-full blur-2xl"></div>
+                <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-purple-500/20 rounded-full blur-2xl"></div>
+
+                <!-- Logo Circle Banner -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-full mx-auto p-3 shadow-xl flex items-center justify-center mb-6 ring-4 ring-rose-400/40">
+                    <svg class="w-full h-full" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Pink Ribbon Logo exact vector trace from image.png -->
+                        <circle cx="308" cy="108" r="16" fill="#ea4887" />
+                        <path d="M 225,225 C 265,220 292,185 298,138 C 304,115 330,145 312,195 C 290,255 292,335 288,370 C 282,415 138,425 138,320 C 138,235 230,230 248,278 C 258,305 236,335 210,320 C 192,308 192,282 208,275" stroke="#ea4887" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <!-- Inner Navy Figure exact vector trace from image.png -->
+                        <circle cx="260" cy="258" r="14" fill="#3e425e" />
+                        <path d="M 248,290 C 242,312 230,340 218,340 C 208,340 202,325 212,305 C 222,285 238,290 234,312 C 228,338 206,362 202,335" stroke="#3e425e" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                </div>
+
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight uppercase mb-2">
+                    Dr. José Luis Saldivar González
+                </h1>
+
+                <!-- Specialities Line matching Business Card -->
+                <p class="text-xs sm:text-base font-bold text-rose-400 tracking-wider uppercase mb-3 px-2">
+                    GINECOLOGÍA Y OBSTETRICIA • COLPOSCOPÍA • GINECOLOGÍA ESTÉTICA LÁSER
+                </p>
+
+                <!-- Professional IDs Line matching Business Card -->
+                <div class="inline-block bg-brand-dark/80 px-4 py-1.5 rounded-full border border-rose-400/30 text-xs sm:text-sm font-semibold tracking-widest text-slate-200 mb-6">
+                    C.P. 7323947 &nbsp;-&nbsp; C.ESP. 11242641
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 text-xs sm:text-sm">
+                    <a href="https://wa.me/525511467730?text=Hola%20Dr.%20Saldivar,%20deseo%20agendar%20una%20cita." target="_blank" class="bg-rose-500 hover:bg-rose-600 text-white font-bold px-6 py-3 rounded-full shadow-lg transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Directo 55 1146 7730
+                    </a>
+                    <button onclick="openBookingModal()" class="bg-white hover:bg-slate-100 text-brand-dark font-bold px-6 py-3 rounded-full shadow-lg transition-all flex items-center gap-2">
+                        <i class="fa-regular fa-calendar-check text-rose-500"></i> Agendar Cita en Línea
+                    </button>
+                </div>
+            </div>
+
+            <!-- Intro Info Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 text-xs sm:text-sm font-medium">
+                        <i class="fa-solid fa-award text-rose-400"></i> Certificado por el Consejo Mexicano de Ginecología y Obstetricia
+                    </div>
+                    
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                        Atención médica especializada, respetuosa y con <span class="text-rose-400">tecnología de vanguardia</span>
+                    </h2>
+
+                    <p class="text-base text-slate-200 font-light max-w-2xl mx-auto lg:mx-0">
+                        Atención médica de alta precisión para la salud femenina: tratamiento de VPH, Colposcopía, Rejuvenecimiento Vaginal Láser, Control de Embarazo y procedimientos mínimamente invasivos.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-left">
+                        <div class="bg-brand-dark/70 p-3 rounded-xl border border-slate-700">
+                            <span class="block text-xs font-bold text-rose-300"><i class="fa-solid fa-location-dot mr-1"></i> Coyoacán</span>
+                            <span class="text-[11px] text-slate-300">55 1156 7730</span>
+                        </div>
+                        <div class="bg-brand-dark/70 p-3 rounded-xl border border-slate-700">
+                            <span class="block text-xs font-bold text-rose-300"><i class="fa-solid fa-hospital mr-1"></i> Clínica Santa Fé</span>
+                            <span class="text-[11px] text-slate-300">56 1196 8449</span>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1 bg-brand-dark/70 p-3 rounded-xl border border-slate-700">
+                            <span class="block text-xs font-bold text-emerald-400"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</span>
+                            <span class="text-[11px] text-slate-300">55 1146 7730</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="bg-brand-dark/80 backdrop-blur-md rounded-2xl p-6 border border-slate-700 shadow-xl text-center space-y-4">
+                        <div class="w-20 h-20 rounded-full bg-rose-500/20 border-2 border-rose-400 mx-auto flex items-center justify-center text-rose-300 text-3xl font-bold">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Dr. José Luis Saldivar González</h3>
+                            <p class="text-xs text-rose-400 font-medium mt-1">Especialista en Ginecología y Obstetricia</p>
+                        </div>
+                        <p class="text-xs text-slate-300 italic">
+                            "Acompañando la salud integral y bienestar íntimo de la mujer con ética, confidencialidad y cálido trato médico."
+                        </p>
+                        <div class="pt-2 border-t border-slate-700 flex flex-col gap-2 text-xs">
+                            <button onclick="openBookingModal('Consultorio Coyoacán')" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-semibold py-2.5 rounded-lg transition-colors">
+                                Agendar en Coyoacán (CDMX)
+                            </button>
+                            <button onclick="openBookingModal('Clínica Santa Fé')" class="w-full bg-brand-slate hover:bg-slate-700 text-white font-semibold py-2.5 rounded-lg border border-slate-600 transition-colors">
+                                Agendar en Clínica Santa Fé (Edo. Méx.)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-2">Formación Profesional & Experiencia</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-navy-900">Trayectoria Médica de Alto Nivel</p>
+                <div class="w-16 h-1 bg-teal-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Bio Text -->
+                <div class="lg:col-span-6 space-y-6">
+                    <h3 class="text-2xl font-bold text-navy-900">
+                        Compromiso Ético y Actualización Constante
+                    </h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        El **Dr. José Luis Saldivar González** es un especialista en Ginecología y Obstetricia con amplia experiencia en la atención de la salud de la mujer. Se destaca por un enfoque ético, empático e integral, adaptando tratamientos de vanguardia para garantizar la tranquilidad de sus pacientes.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Su sólida formación médica en prestigiosas universidades e instituciones del país le permite ofrecer procedimientos seguros, eficaces y personalizados tanto en el área ginecológica general como en procedimientos de alta especialidad en Colposcopía y Medicina Láser.
+                    </p>
+
+                    <div class="p-4 bg-teal-50 rounded-xl border border-teal-100 flex items-start gap-3">
+                        <i class="fa-solid fa-award text-teal-600 text-2xl mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-navy-900 text-sm">Certificación Vigente por el CMGO</h4>
+                            <p class="text-xs text-slate-600">Certificado por el Consejo Mexicano de Ginecología y Obstetricia A.C., avalando los más altos estándares de calidad y ética profesional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Academic Cards -->
+                <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Card 1 -->
+                    <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-lg bg-navy-800 text-white flex items-center justify-center font-bold text-sm mb-3">
+                            <i class="fa-solid fa-university"></i>
+                        </div>
+                        <h4 class="font-bold text-navy-900 text-sm mb-1">Médico Cirujano</h4>
+                        <p class="text-xs font-medium text-teal-600 mb-2">UNAM - FES Iztacala</p>
+                        <p class="text-xs text-slate-500">Formación médica general con excelencia académica. Cédula Prof. 7323947</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-lg bg-teal-600 text-white flex items-center justify-center font-bold text-sm mb-3">
+                            <i class="fa-solid fa-user-nurse"></i>
+                        </div>
+                        <h4 class="font-bold text-navy-900 text-sm mb-1">Especialidad Ginecología</h4>
+                        <p class="text-xs font-medium text-teal-600 mb-2">BUAP - Puebla</p>
+                        <p class="text-xs text-slate-500">Formación especializada en salud integral de la mujer, embarazo y partos. Céd. Esp. 11242641</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-lg bg-rose-500 text-white flex items-center justify-center font-bold text-sm mb-3">
+                            <i class="fa-solid fa-microscope"></i>
+                        </div>
+                        <h4 class="font-bold text-navy-900 text-sm mb-1">Diplomado en Colposcopía</h4>
+                        <p class="text-xs font-medium text-rose-500 mb-2">Universidad La Salle (ULSA)</p>
+                        <p class="text-xs text-slate-500">Diagnóstico oportuno y tratamiento especializado de infecciones por VPH y patología cervical.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="p-5 bg-slate-50 rounded-xl border border-slate-200 hover:shadow-md transition-shadow">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500 text-white flex items-center justify-center font-bold text-sm mb-3">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h4 class="font-bold text-navy-900 text-sm mb-1">Ginecología Estética Láser</h4>
+                        <p class="text-xs font-medium text-amber-600 mb-2">COMEGICO & UAZ</p>
+                        <p class="text-xs text-slate-500">Diplomado en Rejuvenecimiento Vaginal y Medicina Regenerativa Funcional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="especialidades" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-2">Servicios y Tratamientos</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-navy-900">Áreas de Atención Especializada</p>
+                <p class="text-slate-600 text-sm mt-3">Encuentra la atención adecuada para tus necesidades de salud. Puedes buscar por síntomas o procedimientos.</p>
+                
+                <!-- Search and Filter Tool -->
+                <div class="mt-8 max-w-xl mx-auto relative">
+                    <div class="relative">
+                        <input type="text" id="search-treatment" onkeyup="filterServices()" placeholder="Buscar tratamiento (ej. VPH, Láser, Ultrasonido, Miomas)..." class="w-full pl-11 pr-4 py-3 rounded-full border border-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm shadow-sm">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400"></i>
+                    </div>
+                    <div id="filter-pills" class="flex flex-wrap justify-center gap-2 mt-4 text-xs">
+                        <button onclick="filterCategory('all')" class="category-btn active bg-navy-800 text-white px-3 py-1 rounded-full font-medium transition-colors">Todos</button>
+                        <button onclick="filterCategory('vph')" class="category-btn bg-white hover:bg-teal-50 text-slate-700 px-3 py-1 rounded-full font-medium border border-slate-200 transition-colors">VPH / Colposcopía</button>
+                        <button onclick="filterCategory('estetica')" class="category-btn bg-white hover:bg-teal-50 text-slate-700 px-3 py-1 rounded-full font-medium border border-slate-200 transition-colors">Ginecología Estética</button>
+                        <button onclick="filterCategory('embarazo')" class="category-btn bg-white hover:bg-teal-50 text-slate-700 px-3 py-1 rounded-full font-medium border border-slate-200 transition-colors">Embarazo y Parto</button>
+                        <button onclick="filterCategory('patologia')" class="category-btn bg-white hover:bg-teal-50 text-slate-700 px-3 py-1 rounded-full font-medium border border-slate-200 transition-colors">Miomas y Quistes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialty Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+                
+                <!-- Item 1: VPH -->
+                <div class="service-card bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-200/80" data-category="vph" data-keywords="vph virus papiloma humano colposcopia papanicolaou verrugas cauterizacion cono">
+                    <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-virus-covid text-teal-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">VPH y Colposcopía</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Detección oportuna y tratamiento integral del Virus del Papiloma Humano. Diagnóstico preciso de lesiones en cuello uterino, vulva y vagina mediante colposcopía avanzada.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i>Toma de Papanicolaou y Tipificación de VPH</li>
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i>Electrocauterización y Retiro de Verrugas</li>
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i>Biopsia y Conización Cervical</li>
+                    </ul>
+                    <button onclick="openBookingModal('Colposcopía y VPH')" class="w-full text-center py-2 bg-slate-100 hover:bg-teal-600 hover:text-white text-navy-800 font-medium rounded-lg text-xs transition-colors">
+                        Consultar sobre esta área
+                    </button>
+                </div>
+
+                <!-- Item 2: Ginecología Estética Láser -->
+                <div class="service-card bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-200/80" data-category="estetica" data-keywords="estetica laser rejuvenecimiento vaginal tensado incontinencia blanqueamiento labioplastia">
+                    <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Ginecología Estética Láser</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Procedimientos modernos de medicina regenerativa funcional e íntima. Mejora la tonicidad, hidratación y estética vulvovaginal con mínima molestia y rápida recuperación.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li><i class="fa-solid fa-check text-rose-500 mr-2"></i>Rejuvenecimiento y Tensado Vaginal Láser</li>
+                        <li><i class="fa-solid fa-check text-rose-500 mr-2"></i>Tratamiento de Incontinencia Urinaria Leve</li>
+                        <li><i class="fa-solid fa-check text-rose-500 mr-2"></i>Labioplastia y Blanqueamiento Íntimo</li>
+                    </ul>
+                    <button onclick="openBookingModal('Ginecología Estética Láser')" class="w-full text-center py-2 bg-slate-100 hover:bg-rose-500 hover:text-white text-navy-800 font-medium rounded-lg text-xs transition-colors">
+                        Consultar sobre esta área
+                    </button>
+                </div>
+
+                <!-- Item 3: Control Prenatal -->
+                <div class="service-card bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-200/80" data-category="embarazo" data-keywords="embarazo parto cesarea alto riesgo ultrasonido bebe bebe gestacion prenatal">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-baby"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Control de Embarazo & Parto</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Seguimiento continuo y seguro del embarazo normal y de alto riesgo. Atención de parto humanizado, cesáreas respetadas y ultrasonido para el bienestar del bebé.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>Control Prenatal de Alto Riesgo</li>
+                        <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>Atención de Parto Humanizado y Cesárea</li>
+                        <li><i class="fa-solid fa-check text-blue-500 mr-2"></i>Seguimiento Ecográfico y Doppler</li>
+                    </ul>
+                    <button onclick="openBookingModal('Control de Embarazo')" class="w-full text-center py-2 bg-slate-100 hover:bg-blue-600 hover:text-white text-navy-800 font-medium rounded-lg text-xs transition-colors">
+                        Consultar sobre esta área
+                    </button>
+                </div>
+
+                <!-- Item 4: Sangrado Uterino y Miomas -->
+                <div class="service-card bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-200/80" data-category="patologia" data-keywords="sangrado uterino miomas miomatosis quistes histerectomia miomectomia menstruacion">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-notes-medical"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Miomatosis y Sangrado Uterino</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Evaluación del sangrado menstrual abundante o irregular. Tratamiento médico y quirúrgico de miomas uterinos preservando o no la fertilidad según tus deseos.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li><i class="fa-solid fa-check text-indigo-500 mr-2"></i>Miomectomía (Extracción de Miomas)</li>
+                        <li><i class="fa-solid fa-check text-indigo-500 mr-2"></i>Manejo del Sangrado Menstrual Anormal</li>
+                        <li><i class="fa-solid fa-check text-indigo-500 mr-2"></i>Histerectomía Abdominal y Laparoscópica</li>
+                    </ul>
+                    <button onclick="openBookingModal('Miomas y Sangrado Uterino')" class="w-full text-center py-2 bg-slate-100 hover:bg-indigo-600 hover:text-white text-navy-800 font-medium rounded-lg text-xs transition-colors">
+                        Consultar sobre esta área
+                    </button>
+                </div>
+
+                <!-- Item 5: Ovarios Poliquísticos e Infecciones -->
+                <div class="service-card bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-200/80" data-category="patologia" data-keywords="sop ovarios poliquisticos infecciones vaginales urinarias cistitis dolor pelvico hormonas">
+                    <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-capsules"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Síndrome de Ovario Poliquístico (SOP)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Diagnóstico integral de trastornos hormonales, irregularidades menstruales, infecciones vaginales recurrentes e infecciones de vías urinarias.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i>Manejo Integral de SOP y Resistencia a la Insulina</li>
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i>Tratamiento de Candidiasis e Infecciones Recurrentes</li>
+                        <li><i class="fa-solid fa-check text-teal-500 mr-2"></i>Cistitis e Infecciones Urinarias Frecuentes</li>
+                    </ul>
+                    <button onclick="openBookingModal('SOP e Infecciones')" class="w-full text-center py-2 bg-slate-100 hover:bg-teal-600 hover:text-white text-navy-800 font-medium rounded-lg text-xs transition-colors">
+                        Consultar sobre esta área
+                    </button>
+                </div>
+
+                <!-- Item 6: Patología Mamaria & Checkup -->
+                <div class="service-card bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-200/80" data-category="patologia" data-keywords="mama mamas quistes mamarios mastografia checkup ginecologico exploracion tumores">
+                    <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-ribbon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Patología Mamaria & Check-Up</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Exploración, ultrasonido y diagnóstico preventivo de tumores benignos de mama, mastopatía fibroquística y revisión ginecológica anual completa.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li><i class="fa-solid fa-check text-rose-500 mr-2"></i>Revisión y Exploración Clínica de Mamas</li>
+                        <li><i class="fa-solid fa-check text-rose-500 mr-2"></i>Evaluación de Quistes y Fibroadenomas</li>
+                        <li><i class="fa-solid fa-check text-rose-500 mr-2"></i>Check-Up Ginecológico Preventivo Anual</li>
+                    </ul>
+                    <button onclick="openBookingModal('Check-Up Ginecológico / Mamas')" class="w-full text-center py-2 bg-slate-100 hover:bg-rose-500 hover:text-white text-navy-800 font-medium rounded-lg text-xs transition-colors">
+                        Consultar sobre esta área
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="ubicaciones" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-2">Ubicaciones y Sedes</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-navy-900">Consultorios Médicos</p>
+                <p class="text-slate-600 text-sm mt-2">Atención presencial en Coyoacán (CDMX) y Clínica Santa Fé (Edo. Méx.), así como Telemedicina.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Location 1: Coyoacán -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 relative overflow-hidden flex flex-col justify-between hover:border-teal-400 transition-colors">
+                    <div class="absolute top-0 right-0 bg-teal-600 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl">
+                        CDMX
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-teal-500 text-white flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-hospital-user"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-navy-900">Consultorio Coyoacán</h3>
+                                <p class="text-xs text-teal-600 font-medium">Atención con previa cita</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 text-sm text-slate-600 mb-6">
+                            <p class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-location-dot text-rose-500 mt-1"></i>
+                                <span><strong>Dirección:</strong> Av. Río Churubusco 318, Del Carmen, Coyoacán, Ciudad de México (CDMX).</span>
+                            </p>
+                            <p class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-phone text-teal-600"></i>
+                                <span><strong>Teléfono:</strong> <a href="tel:+525511567730" class="hover:underline text-navy-900 font-bold">+52 (55) 1156 7730</a></span>
+                            </p>
+                            <p class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-clock text-slate-400"></i>
+                                <span><strong>Horarios:</strong> Lunes a Sábado (Previa Cita)</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
+                        <button onclick="openBookingModal('Consultorio Coyoacán')" class="flex-1 bg-navy-800 hover:bg-navy-900 text-white py-2.5 rounded-lg text-xs font-semibold transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-calendar-plus"></i> Agendar en Coyoacán
+                        </button>
+                        <a href="https://maps.google.com/?q=Av.+Río+Churubusco+318+Del+Carmen+Coyoacán" target="_blank" class="bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 py-2.5 px-4 rounded-lg text-xs font-semibold text-center transition-colors">
+                            <i class="fa-solid fa-map-location-dot mr-1"></i> Ver Mapa
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Location 2: Clínica Santa Fé -->
+                <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 relative overflow-hidden flex flex-col justify-between hover:border-rose-400 transition-colors">
+                    <div class="absolute top-0 right-0 bg-rose-500 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl">
+                        Edo. de México
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-rose-500 text-white flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-clinic-medical"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-navy-900">Clínica Santa Fé</h3>
+                                <p class="text-xs text-rose-500 font-medium">Los Reyes Acaquilpan</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 text-sm text-slate-600 mb-6">
+                            <p class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-location-dot text-rose-500 mt-1"></i>
+                                <span><strong>Dirección:</strong> Av. Texcoco, Mz 20, Lt 11, Magdalena de los Reyes, Los Reyes Acaquilpan, Estado de México.</span>
+                            </p>
+                            <p class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-phone text-rose-500"></i>
+                                <span><strong>Teléfono Directo:</strong> <a href="tel:+525611968449" class="hover:underline text-navy-900 font-medium">+52 (56) 1196 8449</a></span>
+                            </p>
+                            <p class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-clock text-slate-400"></i>
+                                <span><strong>Horarios:</strong> Lunes a Sábado (Previa Cita)</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
+                        <button onclick="openBookingModal('Clínica Santa Fé')" class="flex-1 bg-rose-500 hover:bg-rose-600 text-white py-2.5 rounded-lg text-xs font-semibold transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-calendar-plus"></i> Agendar en Clínica Santa Fé
+                        </button>
+                        <a href="https://maps.google.com/?q=Av.+Texcoco+Magdalena+de+los+Reyes+Los+Reyes+Acaquilpan" target="_blank" class="bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 py-2.5 px-4 rounded-lg text-xs font-semibold text-center transition-colors">
+                            <i class="fa-solid fa-map-location-dot mr-1"></i> Ver Mapa
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-1 text-gold-400 text-sm mb-2">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="text-white text-xs ml-2 font-bold">(5.0 / 5.0 Reseñas de Pacientes)</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Experiencias de Pacientes</h2>
+                <p class="text-slate-300 text-sm mt-2">La confianza y satisfacción de quienes han puesto su salud en nuestras manos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-slate-800/90 rounded-xl p-6 border border-slate-700 shadow-lg relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-200 text-xs sm:text-sm italic leading-relaxed mb-4">
+                            "Excelente trato del Dr. Saldivar. Me explicó detalladamente todo el procedimiento de mi colposcopía y resolvió mis dudas con mucha empatía y paciencia. Altamente recomendado."
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-700/80 pt-4 mt-2">
+                        <span class="font-semibold text-sm text-white">María Fernanda G.</span>
+                        <span class="text-xs text-teal-400">Paciente Coyoacán</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-slate-800/90 rounded-xl p-6 border border-slate-700 shadow-lg relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-200 text-xs sm:text-sm italic leading-relaxed mb-4">
+                            "Llevé todo mi control de embarazo con el Dr. José Luis y el seguimiento fue impecable. Muy atento en cada ultrasonido, profesional y siempre disponible para emergencias."
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-700/80 pt-4 mt-2">
+                        <span class="font-semibold text-sm text-white">Ana Lucía R.</span>
+                        <span class="text-xs text-rose-300">Paciente Clínica Santa Fé</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-800/90 rounded-xl p-6 border border-slate-700 shadow-lg relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-200 text-xs sm:text-sm italic leading-relaxed mb-4">
+                            "Acudí por un tratamiento de ginecología estética láser y los resultados superaron mis expectativas. La atención es muy privada, segura y ética."
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-700/80 pt-4 mt-2">
+                        <span class="font-semibold text-sm text-white">Claudia M.</span>
+                        <span class="text-xs text-teal-400">Paciente de Consulta General</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-center text-navy-900 mb-8">Preguntas Frecuentes</h2>
+            
+            <div class="space-y-4">
+                <details class="bg-white rounded-lg p-4 border border-slate-200 shadow-sm group">
+                    <summary class="font-semibold text-navy-900 cursor-pointer flex justify-between items-center text-sm">
+                        <span>¿Qué documentos debo llevar a mi primera consulta ginecológica?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                        Es recomendable traer estudios o análisis previos (como Papanicolaou reciente, ultrasonidos o estudios de laboratorio) e historia médica previa si cuentas con ella.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-lg p-4 border border-slate-200 shadow-sm group">
+                    <summary class="font-semibold text-navy-900 cursor-pointer flex justify-between items-center text-sm">
+                        <span>¿Qué diferencia hay entre la consulta presencial y telemedicina?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                        La telemedicina es ideal para orientación inicial, revisión de resultados de laboratorio o segunda opinión médica. Para estudios como Papanicolaou, Colposcopía o Ultrasonido se requiere cita presencial en Coyoacán o Clínica Santa Fé.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-lg p-4 border border-slate-200 shadow-sm group">
+                    <summary class="font-semibold text-navy-900 cursor-pointer flex justify-between items-center text-sm">
+                        <span>¿Cómo es el procedimiento de Rejuvenecimiento Vaginal Láser?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                        Es un tratamiento ambulatorio, prácticamente indoloro y de rápida recuperación que estimula la producción de colágeno en los tejidos. Se evalúa previamente en consulta presencial.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy-900 text-slate-300 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2 space-y-3">
+                    <span class="text-lg font-bold text-white block">Dr. José Luis Saldivar González</span>
+                    <p class="text-xs text-slate-400 max-w-md leading-relaxed">
+                        Especialista en Ginecología y Obstetricia, Colposcopía y Medicina Regenerativa Vaginal. Compromiso con la salud integral, preventiva y especializada de la mujer.
+                    </p>
+                    <p class="text-xs text-slate-400">
+                        <strong>Céd. Prof. General:</strong> 7323947 | <strong>Céd. Especialidad:</strong> 11242641
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-3">Sedes de Atención</h4>
+                    <ul class="text-xs space-y-2 text-slate-400">
+                        <li><i class="fa-solid fa-location-dot text-teal-400 mr-1.5"></i> Coyoacán (Av. Río Churubusco 318)</li>
+                        <li><i class="fa-solid fa-location-dot text-rose-400 mr-1.5"></i> Clínica Santa Fé (Los Reyes Acaquilpan)</li>
+                        <li><i class="fa-solid fa-laptop-medical text-blue-400 mr-1.5"></i> Telemedicina en Línea</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-3">Contacto Directo</h4>
+                    <ul class="text-xs space-y-2 text-slate-400">
+                        <li><i class="fa-solid fa-phone text-rose-400 mr-1.5"></i> Coyoacán: +52 (55) 1156 7730</li>
+                        <li><i class="fa-solid fa-phone text-rose-400 mr-1.5"></i> Sta Fé: +52 (56) 1196 8449</li>
+                        <li><i class="fa-brands fa-whatsapp text-emerald-400 mr-1.5"></i> WhatsApp: +52 55 1146 7730</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
+                <p>&copy; 2026 Dr. José Luis Saldivar González - Todos los derechos reservados. Sitio informático y de agendamiento médico.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+        <a href="https://wa.me/525511467730?text=Hola%20Dr.%20Saldivar,%20me%20gustaría%20agendar%20una%20consulta." target="_blank" class="w-13 h-13 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl transition-all duration-300 hover:scale-110" title="Contactar por WhatsApp">
+            <i class="fa-brands fa-whatsapp p-3"></i>
+        </a>
+        <!-- Booking Quick Button -->
+        <button onclick="openBookingModal()" class="w-13 h-13 bg-teal-600 hover:bg-teal-700 text-white rounded-full flex items-center justify-center text-xl shadow-xl transition-all duration-300 hover:scale-110" title="Agendar Cita">
+            <i class="fa-regular fa-calendar-check p-3"></i>
+        </button>
+    </div>
+
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-navy-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <!-- Close button -->
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl p-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto text-xl mb-2">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+                <h3 class="text-xl font-bold text-navy-900">Agendar Cita Médica</h3>
+                <p class="text-xs text-slate-500">Dr. José Luis Saldivar González - Ginecología & Obstetricia</p>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="appointment-form" onsubmit="handleAppointmentSubmit(event)" class="space-y-4 text-xs sm:text-sm">
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Nombre Completo de la Paciente *</label>
+                    <input type="text" id="patient-name" required placeholder="Ej. María López Hernández" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Teléfono / WhatsApp *</label>
+                        <input type="tel" id="patient-phone" required placeholder="55 1234 5678" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-medium text-slate-700 mb-1">Correo Electrónico</label>
+                        <input type="email" id="patient-email" placeholder="correo@ejemplo.com" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Selecciona Sede o Modalidad *</label>
+                    <select id="patient-location" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none bg-white">
+                        <option value="">-- Seleccionar Ubicación --</option>
+                        <option value="Consultorio Coyoacán (CDMX)">Consultorio Coyoacán (CDMX)</option>
+                        <option value="Clínica Santa Fé (Edo. Méx.)">Clínica Santa Fé (Edo. de México)</option>
+                        <option value="Telemedicina (Consulta Online)">Telemedicina (Consulta Online)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Motivo de Consulta o Servicio</label>
+                    <input type="text" id="patient-service" placeholder="Ej. Checkup, VPH, Control embarazo, Láser..." class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block font-medium text-slate-700 mb-1">Fecha Preferida</label>
+                    <input type="date" id="patient-date" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-semibold py-3 rounded-xl shadow-md text-sm transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Confirmar Cita por WhatsApp
+                    </button>
+                </div>
+                <p class="text-[10px] text-center text-slate-400">Tus datos están protegidos bajo estricto secreto profesional.</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
+        // Open Booking Modal with Optional Preset Location or Service
+        function openBookingModal(presetInfo = '') {
+            const modal = document.getElementById('booking-modal');
+            const locationSelect = document.getElementById('patient-location');
+            const serviceInput = document.getElementById('patient-service');
+
+            if (presetInfo) {
+                if (presetInfo.includes('Coyoacán') || presetInfo.includes('Santa Fé') || presetInfo.includes('Telemedicina')) {
+                    for (let option of locationSelect.options) {
+                        if (option.value.includes(presetInfo)) {
+                            locationSelect.value = option.value;
+                            break;
+                        }
+                    }
+                } else {
+                    serviceInput.value = presetInfo;
+                }
+            }
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Booking Modal
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Filter Services / Treatments Search
+        function filterServices() {
+            const query = document.getElementById('search-treatment').value.toLowerCase();
+            const cards = document.querySelectorAll('.service-card');
+
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                const text = card.innerText.toLowerCase();
+
+                if (keywords.includes(query) || text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Filter Services by Category Pill
+        function filterCategory(category) {
+            const cards = document.querySelectorAll('.service-card');
+            const buttons = document.querySelectorAll('.category-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-navy-800', 'text-white', 'active');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('bg-navy-800', 'text-white', 'active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Handle Appointment Submission -> Redirects formatted to WhatsApp
+        function handleAppointmentSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('patient-name').value;
+            const phone = document.getElementById('patient-phone').value;
+            const location = document.getElementById('patient-location').value;
+            const service = document.getElementById('patient-service').value || 'Consulta General';
+            const date = document.getElementById('patient-date').value || 'A convenir';
+
+            const message = `Hola Dr. José Luis Saldivar, deseo agendar una cita.%0A%0A*Paciente:* ${encodeURIComponent(name)}%0A*Teléfono:* ${encodeURIComponent(phone)}%0A*Sede/Modalidad:* ${encodeURIComponent(location)}%0A*Motivo:* ${encodeURIComponent(service)}%0A*Fecha solicitada:* ${encodeURIComponent(date)}`;
+
+            const whatsappUrl = `https://wa.me/525511467730?text=${message}`;
+
+            window.open(whatsappUrl, '_blank');
+            closeBookingModal();
+        }
+
+        // Close Modal when clicking outside the box
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('booking-modal');
+            if (e.target === modal) {
+                closeBookingModal();
+            }
+        });
+    </script>
+</body>
+</html>
